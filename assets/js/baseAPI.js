@@ -11,7 +11,7 @@ $.ajaxPrefilter(function(options) {
     // 全局同意挂载 complete 回调函数
     options.complete = function(res) {
         if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
-            console.log(11);
+            // console.log(11);
             // 强制清除本地的token
             localStorage.removeItem('token')
 

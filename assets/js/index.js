@@ -29,7 +29,7 @@ function grtUsersInfo() {
         // headers 就是请求头配置对象
         // headers: { Authorization: localStorage.getItem('token') },
         success(res) {
-            console.log(res)
+            // console.log(res)
             if (res.code !== 0) {
                 return layui.layer.mes('用户获取失败')
             }
@@ -38,17 +38,17 @@ function grtUsersInfo() {
         },
 
         // 无论成功还是失败都会调用的函数
-        // complete(res) {
-        //     console.log(res);
-        //     if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
-        //         console.log(11);
-        //         // 强制清除本地的token
-        //         localStorage.removeItem('token')
+        complete(res) {
+            console.log(res);
+            if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
+                console.log(11);
+                // 强制清除本地的token
+                localStorage.removeItem('token')
 
-        //         // 跳转到登录页面
-        //         location.href = '/login.html'
-        //     }
-        // }
+                // 跳转到登录页面
+                location.href = '/login.html'
+            }
+        }
     })
 }
 
