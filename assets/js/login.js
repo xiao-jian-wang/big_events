@@ -46,6 +46,7 @@ $(function() {
                 return layer.msg(res.message)
             }
             layer.msg('注册成功!')
+            $('.layui-input').val('')
 
             // 模拟人的点击行为
             $('#link_login').click()
