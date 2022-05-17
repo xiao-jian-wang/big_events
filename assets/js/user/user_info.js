@@ -19,7 +19,7 @@ $(function() {
             method: 'GET',
             success(res) {
                 if (res.code !== 0) {
-                    return layer.mes('用户初始化信息失败')
+                    return layer.msg('用户初始化信息失败')
                 }
                 // console.log(res);
                 layui.form.val("formUserInfo", res.data)
@@ -33,7 +33,7 @@ $(function() {
         initUserInfo()
     })
 
-    监听表单提交事件
+    // 监听表单提交事件
     $('.layui-form').on('submit', function(e) {
         e.preventDefault() //阻止表单提交时的默认行为
         $.ajax({
@@ -41,11 +41,12 @@ $(function() {
             method: 'PUT',
             data: $(this).serialize(),
             success(res) {
-                console.log(res);
+                // console.log(res);
                 if (res.code !== 0) {
-                    return layer.mes('用户更新信息失败')
+                    return layer.msg('用户更新信息失败')
                 }
-                layer.mes('用户更新信息成功')
+                layer.msg('用户更新信息成功')
+                window.parent.grtUsersInfo()
             }
         })
     })
