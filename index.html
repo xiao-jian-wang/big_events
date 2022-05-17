@@ -32,7 +32,7 @@
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item layui-hide layui-show-md-inline-block">
                     <a href="javascript:;" class="avatar-img">
-                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"> <span class="avatar-text">A</span>个人中心
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img" style="display: none;"> <span class="avatar-text" style="display: none;"></span>个人中心
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="">基本资料</a></dd>
@@ -41,7 +41,7 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
-                    <a href="javascript:;">
+                    <a href="javascript:;" id="btnLogout">
                         <span class="iconfont icon-tuichu"></span>退出
                     </a>
                 </li>
@@ -52,9 +52,9 @@
             <div class="layui-side-scroll">
                 <!-- 左侧导航栏头像 -->
                 <div class="avatar-img">
-                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    <span class="avatar-text">A</span>
-                    <span id="welcome">欢迎 xxx</span>
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img" style="display: none;">
+                    <span class="avatar-text" style="display: none;"></span>
+                    <span id="welcome"></span>
                 </div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all">
@@ -92,5 +92,14 @@
 </body>
 <!-- 导入 layui js文件 -->
 <script src="./assets/lib/layui/layui.all.js"></script>
+
+<!-- 导入jQuery js文件 -->
+<script src="./assets/lib/jquery.js"></script>
+
+<!-- 导入自定义的 baseAPI js 文件 -->
+<script src="./assets/js/baseAPI.js"></script>
+
+<!-- 导入自定义的 js 文件 -->
+<script src="./assets/js/index.js"></script>
 
 </html>

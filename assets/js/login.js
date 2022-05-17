@@ -38,11 +38,11 @@ $(function() {
     $('#form_reg').on('submit', function(e) {
         e.preventDefault() //阻止表单提交时的默认跳转行为
 
-        let data = { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val() }
+        let data = { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val(), repassword: $('#form_reg [name=repassword]').val() }
 
-        // 发起 ajax 的 post 请求
-        $.post('/api/reguser', data, function(res) {
-            if (res.status !== 0) {
+        // 发起 ajax 的 post 请求  3008 api/reg
+        $.post('/api/reg', data, function(res) {
+            if (res.code !== 0) {
                 return layer.msg(res.message)
             }
             layer.msg('注册成功!')
@@ -62,7 +62,7 @@ $(function() {
             // 快速获取表单数据
             data: $(this).serialize(),
             success: function(res) {
-                if (res.status !== 0) {
+                if (res.code !== 0) {
                     return layer.msg('登录失败!')
                 }
                 layer.msg('登录成功!')
