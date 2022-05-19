@@ -38,17 +38,17 @@ function grtUsersInfo() {
         },
 
         // 无论成功还是失败都会调用的函数
-        complete(res) {
-            console.log(res);
-            if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
-                console.log(11);
-                // 强制清除本地的token
-                localStorage.removeItem('token')
+        // complete(res) {
+        //     console.log(res);
+        //     if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
+        //         console.log(11);
+        //         // 强制清除本地的token
+        //         localStorage.removeItem('token')
 
-                // 跳转到登录页面
-                location.href = '/login.html'
-            }
-        }
+        //         // 跳转到登录页面
+        //         location.href = '/login.html'
+        //     }
+        // }
     })
 }
 

@@ -51,8 +51,8 @@ $(function() {
 
         // 2.调用接口 把头像传到服务器
         $.ajax({
-            url: '/my/update/avatar',
             type: 'PATCH',
+            url: '/my/update/avatar',
             data: {
                 avatar: dataURL
             },
