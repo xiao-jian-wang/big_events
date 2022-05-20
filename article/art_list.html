@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!-- 卡片区域 -->
+    <!-- 卡片区域 1 -->
     <div class="layui-card">
         <div class="layui-card-header">文章列表</div>
         <div class="layui-card-body">
@@ -60,6 +60,8 @@
         </div>
     </div>
 
+
+
     <!-- 筛选区域的分类区域样式 -->
     <script type="text/html" id="select">
         <option value="">所有分类</option>
@@ -77,7 +79,7 @@
             <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs btn_mod" data-id="{{$value.id}}">编辑</button>
                 <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn_dtl" data-id="{{$value.id}}">删除</button>
             </td>
         </tr>

@@ -156,4 +156,20 @@ $(function() {
             })
         })
     })
+
+    // 添加点击编辑按钮事件
+    $('tbody').on('click', '.btn_mod', function() {
+        let id = $(this).attr('data-id')
+            // location.href = '/article/art_mod.html'
+        $.ajax({
+            url: '/my/article/info',
+            type: 'GET',
+            data: {
+                id
+            },
+            success(res) {
+                console.log(res.data);
+            }
+        })
+    })
 })
