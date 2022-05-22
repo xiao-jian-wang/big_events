@@ -19,7 +19,7 @@
     <div class="layui-card">
         <div class="layui-card-header">编辑文章</div>
         <div class="layui-card-body">
-            <form class="layui-form" id="form_pub">
+            <form class="layui-form" id="form_mod" lay-filter="form_pub">
                 <!-- 第一行 文章标题 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
@@ -31,7 +31,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章类别</label>
                     <div class="layui-input-block">
-                        <select name="cate_id" lay-verify="required">
+                        <select name="cate_id" lay-verify="required" id="one">
                         </select>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit>更新</button>
-                        <button class="layui-btn layui-btn-primary" lay-submit id="pub_save2">存为草稿</button>
+                        <button class="layui-btn layui-btn-primary" lay-submit id="pub_save3">存为草稿</button>
                     </div>
                 </div>
             </form>
@@ -104,6 +104,7 @@
 <script src="/assets/lib/cropper/Cropper.js"></script>
 <script src="/assets/lib/cropper/jquery-cropper.js"></script>
 
+<script src="../assets/js/article/art_pub.js"></script>
 <!-- 导入自己的样式 -->
 <script src="../assets/js/article/art_mod.js"></script>
 

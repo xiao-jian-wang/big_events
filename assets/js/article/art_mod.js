@@ -1,25 +1,33 @@
 $(function() {
-    let layer = layui.layer
     let form = layui.form
-    initCate()
+    let layer = layui.layer
 
-    // 初始化富文本编辑器
-    initEditor()
+    // 获取存储的数据
+    let detail = localStorage.getItem('mod')
+    detail = JSON.parse(detail)
 
-    function initCate() {
+
+    // console.log(detail);
+    form.val('form_pub', detail)
+    console.log(detail.cate_id);
+    initSelect()
+
+    // let select = $('select')[0]
+    // 初始化分类下拉菜单方法
+    function initSelect() {
         $.ajax({
-            method: 'GET',
             url: '/my/cate/list',
+            method: 'GET',
             success(res) {
                 if (res.code !== 0) {
-                    return layer.msg('文章类别初始化失败!')
+                    return layer.msg('获取分类失败!')
                 }
                 // console.log(res);
-
-                // 调用模板引擎 渲染分类下拉菜单
                 let htmlStr = template('put_sele', res)
+
+                // console.log(htmlStr);
                 $('[name="cate_id"]').html(htmlStr)
-                form.render() //调用 form.render 方法 重新渲染
+                form.render() //通知layui 重新渲染筛选框里面的内容
             }
         })
     }
@@ -65,18 +73,20 @@ $(function() {
     let stateStart = '已发布'
 
     // 为'存为草稿'按钮添加点击事件
-    $('#pub_save2').on('click', function() {
+    $('#pub_save3').on('click', function() {
         // 修改状态为  草稿
         stateStart = '草稿'
     })
 
-    // 监听表单的提交事件
-    $('#form_pub').on('submit', function(e) {
+    // 监听更新表单的提交事件
+    $('#form_mod').on('submit', function(e) {
         // 阻止表单提交时的默认行为
         e.preventDefault()
 
         // 基于 form表单 创建一个 FormData 对象
         let fd = new FormData($(this)[0])
+
+        fd.append('id', detail.id)
 
         // 把状态添加到 fd 中
         fd.append('state', stateStart)
@@ -92,14 +102,17 @@ $(function() {
                 // 将文件对象存储到 fd 中
                 fd.append('cover_img', blob)
                 publishArticle(fd)
+                    // fd.forEach(function(value, key) {
+                    //     console.log(key, value);
+                    // })
             })
     })
 
     // 定义一个发布文章方法
     function publishArticle(fd) {
         $.ajax({
-            url: '/my/article/add',
-            method: 'POST',
+            url: '/my/article/info',
+            method: 'PUT',
             data: fd,
             // 当向服务器发送 FormData 格式的数据时
             // 必须添加下面两个配置项
@@ -108,15 +121,14 @@ $(function() {
             success(res) {
                 // console.log(res);
                 if (res.code !== 0) {
-                    return layer.msg('添加文章失败!')
+                    return layer.msg('修改文章失败!')
                 }
-                layer.msg('添加文章成功!')
+                layer.msg('修改文章成功!')
 
                 // 文章发布成功后，跳转到文章列表页面
                 location.href = '/article/art_list.html'
             }
         })
     }
-
 
 })
