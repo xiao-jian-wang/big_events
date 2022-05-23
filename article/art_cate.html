@@ -57,6 +57,7 @@
     <!-- 点击添加弹出框的结构 -->
     <script type="text/html" id="dialog_add">
         <form class="layui-form" id="form_add">
+            <input type="hidden" name="id">
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
                 <div class="layui-input-block">
@@ -71,7 +72,7 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+                    <button class="layui-btn" lay-submit lay-filter="formDemo" id="sure">确认添加</button>
                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </div>
@@ -79,7 +80,7 @@
     </script>
 
     <!-- 点击编辑弹出框的结构 -->
-    <script type="text/html" id="dialog_edit">
+    <!-- <script type="text/html" id="dialog_edit">
         <form class="layui-form" id="form_edit" lay-filter="form_edit">
             <input type="hidden" name="id">
             <div class="layui-form-item">
@@ -100,7 +101,7 @@
                 </div>
             </div>
         </form>
-    </script>
+    </script> -->
 </body>
 <!-- 导入 layui 样式 -->
 <script src="../assets/lib/layui/layui.all.js"></script>

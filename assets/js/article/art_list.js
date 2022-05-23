@@ -1,4 +1,6 @@
 $(function() {
+    // localStorage.removeItem('id')
+
     let layer = layui.layer
     let form = layui.form
     let laypage = layui.laypage
@@ -167,11 +169,11 @@ $(function() {
                 id
             },
             success(res) {
-                let data = JSON.stringify(res.data)
+                // let data = JSON.stringify(res.data)
 
                 // console.log(data);
-                localStorage.setItem('mod', data)
-                location.href = '/article/art_mod.html'
+                localStorage.setItem('id', res.data.id)
+                location.href = '/article/art_pub.html'
             }
         })
 
